@@ -1,0 +1,13 @@
+# SSH keys
+
+.ssh
+.ssh.pub
+
+#misc files
+
+README.md
+
+# build files
+
+[Bb]in/
+[Oo]bj/
