@@ -1,0 +1,39 @@
+Setting up DNS to forward jgroatdeveloper.com to my local machine
+-Router Settings
+	-Firewall
+		-Virtual Servers
+			-create new entry
+				-Inbound Port: 80
+				-Type: tcp/udp
+				-Private IP: whatever the device is on the router
+				-Private Port: 80
+-DNS registrar settings: (namecheap.com:jgreckless, regular+g)
+	-Modify Domain
+		-HostName (MyAccount/Host Management/URL Forwarding (or All Host Records for more options)
+			-@
+				-IP Address/URL
+					-actual IP address (whatsmyip)
+				-RecordType
+					-URL Redirect
+				-TTL
+					-1800(default)
+			-www
+				-IP Address/URL
+					-http://jgroatdeveloper.com
+				-RecordType
+					-URL Frame
+				-TTL
+					-1800 (default)
+		//TODO: figure out how to get the redirect to stop showing 
+			the IP address and show the actual DNS name (IIS Setting?)
+-Local Settings
+	-Turn off Windows Firewall
+		-To enable in-network and out of network access
+	-IIS
+		-bindings
+			-HostName
+				-jgroatdeveloper.com
+			-Port
+				-80
+			-IP Address
+				-(192.168.2.8)
