@@ -9,31 +9,31 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Johnny Groat - The Developer", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                </div>
+        <div class="jg-header-title">
+            <div>
+                <p class="site-title">@Html.ActionLink("Johnny Groat - The Developer", "Index", "Home")</p>
             </div>
-        </header>
-        <div id="body">
-            <div class="float-left">
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+        </div>
+        <div class="jg-body-content">
+            <div>
                 <ul id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-             </div>
+            </div>
             <div class="float-left">
                 @RenderSection("featured", required: false)
-                <section class="content-wrapper main-content clear-fix">
+                @*<section class="content-wrapper main-content clear-fix">*@
                     @RenderBody()
-                </section>
+                @*</section>*@
+
+                <span>something better freaking align</span>
             </div>
         </div>
         <footer>
