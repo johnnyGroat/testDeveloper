@@ -12,3 +12,7 @@ README.md
 [Bb]in/
 [Oo]bj/
 [Dd]ebug/
+
+# solution files
+
+*.suo
