@@ -1,45 +1,59 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Welcome";
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>
-        </div>
-    </section>
+
+<h1>@ViewBag.Title</h1>
+<h3>I'm a web developer</h3>
+@{
+    ViewBag.Title = "Welcome";
 }
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
-    </li>
+<div class="content-body">
+    <span>
+        And I do some web developer stuff.  Actually that's what this whole site is trying to showcase.  I've been working as a frontend web engineer for about 8 months or so and I needed some kind of platform to test and develop some of my own code.
+    </span>
+</div>
+<div style="padding-right:20px;">
+    <span>
+        Right now I'm using the basic starter MVC template that Visual Studio spits out, but hopefully I'll remove all of the unneccesary stuff in here (which I can already tell is a TON of stuff).  Whenever I find some time I'll be updating this and posting my code changes to my github account (<a href="https://github.com/johnnyGroat">https://github.com/johnnyGroat</a>).
+    </span>
+</div>
+<div style="padding-right:20px;">
+    <div>
+        <h3>Some quick ideas for the future</h3>
+        <ol class="round">
+            <li class="one">
+                <h5>Sidebar</h5>
+                I already hate how the sidebar loads.  I plan on converting these views to be partial views so the transition on click is a lot smoother. There really is no need to refresh the whole page unless I'm presenting some kind of much larger project
+            </li>
 
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
+            <li class="two">
+                <h5>Add NuGet packages and jump-start your coding</h5>
+                NuGet makes it easy to install and update free libraries and tools.
 
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
-</ol>
+                ehh, I tend to forget about this.  Gonna leave NuGet in here to remind myself
+                <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
+            </li>
+
+            <li class="three">
+                <h5>Content Management</h5>
+                I'm typing into HTML code right now.  This is kind of terrible. I think ideally I'd like to create some kind of content management system where I put idea files into a directory and have this page automatically display them. I think this would be a good idea after I find some kind of hosting to smooth out that process of pushing things to my 'production'.
+
+                This would also be great if I turn this homepage into a kind of blog of some type about stuff I find on the internet or in real life.
+            </li>
+            <li class="four">
+                <h5>Web Crawler</h5>
+                I have an idea to write a web scraper and try and automatically download the hockey schedue for a men's league I'm in.  We've ran into some problems where the hockey director has given us some terrible time slots I thought it would be cool to coorelate some of those statistics with how teams perform overall.
+            </li>
+            <li class="five">
+                <h5>Web API Integration</h5>
+                My buddy, Mike, and I have this beer app called 'untappd' where we log all the different beers we try.  He thought it'd be cool to see if there's a way to use their API to come up with some cool statistics for type of beers by time of day, time of year, day of week, etc.
+
+                Spotify also has some cool API code that I might mess around with to try and see what kind of Generes I like to listen to and maybe make kind of analysis.
+            </li>
+        </ol>
+    </div>
+</div>
+<script type="text/javascript">
+        $(".nav li").removeClass("active");
+        $("#_homeMenuItem").addClass("active");
+</script>

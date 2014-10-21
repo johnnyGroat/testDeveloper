@@ -38,6 +38,13 @@ namespace TestMVCApp
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/themes/bootstrap/css").Include(
+                        "~/Content/themes/bootstrap/css/bootstrap.css",
+                        "~/Content/themes/bootstrap/css/bootstrap-theme.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/themes/bootstrap/js").Include(
+                        "~/Content/themes/bootstrap/js/bootstrap.js"));
         }
     }
 }

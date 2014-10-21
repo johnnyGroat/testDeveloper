@@ -5,35 +5,32 @@
         <title>JGroat Developer Profile</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
+
     </head>
     <body>
         <div class="jg-header-title">
             <div>
                 <p class="site-title">@Html.ActionLink("Johnny Groat - The Developer", "Index", "Home")</p>
             </div>
-            <div class="float-right">
+            @*<div class="float-right">
                 <section id="login">
                     @Html.Partial("_LoginPartial")
                 </section>
-            </div>
+            </div>*@
         </div>
-        <div class="jg-body-content">
-            <div>
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <div class="sidebar-nav">
+            <div id="menu">
+                <ul class="nav nav-pills nav-stacked pull-left">
+                    <li id="_homeMenuItem">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="_aboutMenuItem">@Html.ActionLink("About", "About", "Home")</li>
+                    <li id="_contactMenuItem">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
-            <div class="float-left">
+        </div>
+        <div class="content-wrapper">
+            <div class="float-left content-body">
                 @RenderSection("featured", required: false)
-                @*<section class="content-wrapper main-content clear-fix">*@
-                    @RenderBody()
-                @*</section>*@
-
-                <span>something better freaking align</span>
+                @RenderBody()
             </div>
         </div>
         <footer>
@@ -44,7 +41,12 @@
             </div>
         </footer>
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
+
+        <script type="text/javascript">
+            $(".nav").click(function () {
+                $(".nav li").removeClass("active");
+                $(this).addClass("active");
+            });
+        </script>
     </body>
 </html>
