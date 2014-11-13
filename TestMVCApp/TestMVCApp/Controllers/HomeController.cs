@@ -28,5 +28,12 @@ namespace TestMVCApp.Controllers
 
             return View();
         }
+
+        public ActionResult Genrefy()
+        {
+            ViewBag.Message = "Genrefy Template";
+
+            return View();
+        }
     }
 }
