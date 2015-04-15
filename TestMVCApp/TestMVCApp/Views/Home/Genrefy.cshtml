@@ -7,9 +7,9 @@
         I want to do some Genre analysis on some of my playlists and maybe import some visualization libraries and do some cool stuff with that.  I saw some 'Mood analyzer' stuff in their app store, but I don't know how they work, so I'll just do it myself
     </span>    
 </div>
-<div class="content-body">
-    <span style="padding-right: 15px;">Search for an artist</span><input type="text" id="_artistSearch" />
-    <button id="_artistSearchSubmit">Search</button>
+<div class="ui-widget">
+    <label for="_artistSearch" style="padding-right: 15px;">Search for an artist: </label>
+    <input id="_artistSearch" />
 </div>
 <div class="content-body">
     <select id="_artistSearchResult" size="10" style="width:60%;">
@@ -26,16 +26,14 @@
 
         var spotifySearchType = 'artist';
 
-        var artistSearch = searchTerm.replace(' ', '+');
+        var spotifyApiUrl = 'https://api.spotify.com/v1/search?' + 'type=' + spotifySearchType + '&q=' + encodeURI(searchTerm + '*') + '&limit=50';
 
-        var spotifyApiUrl = 'https://api.spotify.com/v1/search?' + 'type=' + spotifySearchType + '&q=' + artistSearch + '&limit=50';
-
-       return $.ajax({
+        $.ajax({
             type: 'GET',
             url: spotifyApiUrl,
-            async: false,
             success: function (data) {
-
+                BuildSpotifyArtistHtml(data.artists.items);
+                BuildSpotifyAC(data.artists.items);
             },
             error: function (data) {
                 var bigD = data;
@@ -65,18 +63,35 @@
 
     };
 
-    $('#_artistSearch').change(function () {
-        if(this.value.length > 2)
-        {
-            var artists = SpotifySearchSubmit(this.value).done(BuildSpotifyArtistHtml(result));// var sendQuery = "now";
-            BuildSpotifyArtistHtml(artists);
+    function BuildSpotifyAC(spotifyArtists) {
+
+        var acArray = [];
+        for (var i = 0; i < spotifyArtists.length; i++) {
+            acArray.push(spotifyArtists[i].name);
+        }
+
+        //if (acArray.length > 0) {
+        //    $('#_artistSearch').autocomplete({
+        //        source: acArray
+        //    });
+        //}
+    };
+
+    $('#_artistSearch').on('input', function () {
+        if (this.value.length > 3) {
+            SpotifySearchSubmit(this.value);
+        }
+        else {
+            $('#_artistSearchResult').html('');
         }
     });
 
     $('#_artistSearchSubmit').on('click', function () {
         var artistQuery = $('#_artistSearch').val();
 
-        BuildSpotifyArtistHtml(SpotifySearchSubmit(artistQuery));
+        var resp = SpotifySearchSubmit(artistQuery);
+
+        BuildSpotifyArtistHtml(resp);
 
     });
 </script>
