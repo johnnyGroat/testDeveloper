@@ -10,7 +10,7 @@ namespace TestMVCApp.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Butify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Message = "";
 
             return View();
         }
